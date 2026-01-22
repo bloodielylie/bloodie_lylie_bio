@@ -1,27 +1,53 @@
 /* -----------------------
    DARK / LIGHT TOGGLE
 ------------------------ */
+// const toggle = document.getElementById('themeToggle');
+// const icon = toggle.querySelector('i');
+
+// const savedTheme = localStorage.getItem('theme');
+// if (savedTheme) {
+//     document.documentElement.setAttribute('data-theme', savedTheme);
+//     icon.className = savedTheme === 'dark'
+//         ? 'fa-solid fa-moon'
+//         : 'fa-solid fa-sun';
+// }
+
+// toggle.addEventListener('click', () => {
+//     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+//     const newTheme = isDark ? 'light' : 'dark';
+
+//     document.documentElement.setAttribute('data-theme', newTheme);
+//     localStorage.setItem('theme', newTheme);
+
+//     icon.className = newTheme === 'dark'
+//         ? 'fa-solid fa-moon'
+//         : 'fa-solid fa-sun';
+// });
 const toggle = document.getElementById('themeToggle');
 const icon = toggle.querySelector('i');
 
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  if (icon) {
     icon.className = savedTheme === 'dark'
-        ? 'fa-solid fa-moon'
-        : 'fa-solid fa-sun';
+      ? 'fa-solid fa-moon'
+      : 'fa-solid fa-sun';
+  }
 }
 
-toggle.addEventListener('click', () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const newTheme = isDark ? 'light' : 'dark';
+toggle.addEventListener('pointerup', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const newTheme = isDark ? 'light' : 'dark';
 
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
 
+  if (icon) {
     icon.className = newTheme === 'dark'
-        ? 'fa-solid fa-moon'
-        : 'fa-solid fa-sun';
+      ? 'fa-solid fa-moon'
+      : 'fa-solid fa-sun';
+  }
 });
 
 /* -----------------------
@@ -47,29 +73,52 @@ window.addEventListener('deviceorientation', e => {
 /* =========================
    SCROLL REVEAL (FIXED)
 ========================= */
-document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('.product-item.reveal');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const items = document.querySelectorAll('.product-item.reveal');
 
-    const observer = new IntersectionObserver(
-        (entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    obs.unobserve(entry.target); // chỉ chạy 1 lần
-                }
-            });
-        },
-        {
-            threshold: 0.8,              // chỉ khi thấy ~30%
-            rootMargin: '0px 0px -10% 0px' // không trigger quá sớm
-        }
-    );
+//     const observer = new IntersectionObserver(
+//         (entries, obs) => {
+//             entries.forEach(entry => {
+//                 if (entry.isIntersecting) {
+//                     entry.target.classList.add('is-visible');
+//                     obs.unobserve(entry.target); // chỉ chạy 1 lần
+//                 }
+//             });
+//         },
+//         {
+//             threshold: 0.3,              // chỉ khi thấy ~30%
+//             rootMargin: '0px 0px -10% 0px' // không trigger quá sớm
+//         }
+//     );
 
-    items.forEach(item => observer.observe(item));
-});
+//     items.forEach(item => observer.observe(item));
+// });
 
 
 //render sản phẩm.//
+
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.product-item.reveal');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+      rootMargin: '0px 0px -10% 0px'
+    }
+  );
+
+  items.forEach(item => observer.observe(item));
+});
+
 
 const productsList = document.getElementById("products-list");
 
