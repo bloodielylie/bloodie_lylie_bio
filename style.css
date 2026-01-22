@@ -115,17 +115,29 @@ body::before {
 }
 
 body {
-    font-family: "Merriweather", serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 h1, h2 {
-    font-family: "Playfair Display", serif;
+    font-family: "Comfortaa", serif;
 }
 
-p {
-    font-family: "Playfair Display", serif;
+.unbox .follow{
+    font-family: "Montserrat", sans-serif;
 }
 
+.products-title{
+    font-family: "Comfortaa", serif;
+}
+
+.product-content{
+    justify-content: center;
+    display: flex;
+}
+
+.product-name {
+  text-align: center;
+}
 
 
 /* =========================
@@ -186,11 +198,12 @@ p {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    text-align: center;
 }
 
 .product-content h4 {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .product-content p {

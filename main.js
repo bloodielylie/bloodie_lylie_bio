@@ -87,7 +87,7 @@ products.forEach(product => {
     </div>
 
     <div class="product-content">
-      <h4>${product.name}</h4>
+      <h4 class="product-name">${product.name}</h4>
     </div>
 
     <span class="product-arrow">›</span>
