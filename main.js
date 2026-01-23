@@ -144,3 +144,58 @@ products.forEach(product => {
 
   productsList.appendChild(item);
 });
+
+
+// tìm kiếm
+const searchInput = document.getElementById('productSearch');
+const clearBtn = document.getElementById('clearSearch');
+const productItems = document.querySelectorAll('.product-item');
+const emptyState = document.getElementById('emptyState');
+
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
+
+function highlight(text, keyword) {
+  if (!keyword) return text;
+
+  const regex = new RegExp(`(${keyword})`, 'gi');
+  return text.replace(regex, '<mark>$1</mark>');
+}
+
+searchInput.addEventListener('input', () => {
+  const keywordRaw = searchInput.value.trim();
+  const keyword = normalize(keywordRaw);
+
+
+  let visibleCount = 0;
+
+  productItems.forEach(item => {
+    const nameEl = item.querySelector('.product-name');
+    const originalText = nameEl.textContent;
+    const normalizedName = normalize(originalText);
+
+    if (normalizedName.includes(keyword)) {
+      item.style.display = '';
+      item.classList.remove('hide');
+
+      nameEl.innerHTML = highlight(originalText, keywordRaw);
+      visibleCount++;
+    } else {
+      item.classList.add('hide');
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 300);
+
+      nameEl.textContent = originalText;
+      item.classList.remove('is-visible');
+    }
+  });
+
+  emptyState.hidden = visibleCount !== 0;
+});
+
+

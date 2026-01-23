@@ -268,3 +268,69 @@ h1, h2 {
         transform: translateY(-2px);
     }
 }
+
+
+/* tìm kiếm */
+/* Wrapper để căn giữa, fix lệch */
+/* Search wrapper bám theo products */
+/* Search wrapper nằm trong products */
+.product-search-wrapper {
+  width: 100%;
+}
+
+/* Search bar = card */
+.product-search {
+  width: 100%;
+  border-radius: 16px;       
+  box-sizing: border-box;   
+  padding-right: 23%;
+}
+
+/* Input */
+.product-search input {
+  width: 100%;
+  padding: 12px 44px 12px 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.product-search input:focus {
+  border-color: #f3a6b6;
+  box-shadow: 0 0 0 4px rgba(243, 166, 182, 0.25);
+}
+
+
+
+/* Highlight keyword */
+mark {
+  background: rgba(243, 166, 182, 0.45);
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 4px;
+}
+
+/* Animation co dần khi lọc */
+.product-item {
+  transition: 
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    margin 0.3s ease;
+}
+
+.product-item.hide {
+  opacity: 0;
+  transform: scale(0.96);
+  margin: 0;
+  pointer-events: none;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+}
