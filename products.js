@@ -10,9 +10,9 @@ const products = [
     name: "Cặp kẹp bàn pegboard bằng kim loại"
   },
   {
-    link: "https://s.shopee.vn/2g54peDBVQ",
-    image: "https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-m33r71swxxxe08.webp",
-    name: "Thảm trải bàn làm việc da PU"
+    link: "https://s.shopee.vn/9UvRd431hC",
+    image: "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-mbp4lz7qyqgi03.webp",
+    name: "Tăm nước Brushie Super Sonic"
   },
   {
     link: "https://s.shopee.vn/2g54peDBVQ",
@@ -49,4 +49,5 @@ const products = [
 
 
 ];
+
 
