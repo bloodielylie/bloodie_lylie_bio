@@ -15,9 +15,9 @@ const products = [
     name: "Tăm nước Brushie Super Sonic"
   },
   {
-    link: "https://s.shopee.vn/2g54peDBVQ",
-    image: "https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-m33r71swxxxe08.webp",
-    name: "Thảm trải bàn làm việc da PU"
+    link: "https://s.shopee.vn/9zriLSuHnD",
+    image: "https://down-vn.img.susercontent.com/file/sg-11134201-7r9b4-llme2lzmck6ce1@resize_w450_nl.webp",
+    name: "Móc khóa acrylic trong suốt hình Sakura Thủ Lĩnh Thẻ Bài"
   },
   {
     link: "https://s.shopee.vn/2g54peDBVQ",
@@ -49,5 +49,6 @@ const products = [
 
 
 ];
+
 
 
