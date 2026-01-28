@@ -30,9 +30,9 @@ const products = [
     name: "Bảng Pegboard chất liệu nhựa Acrylic"
   },
   {
-    link: "test",
-    image: "test",
-    name: "test"
+    link: "https://s.shopee.vn/806laB5z1K",
+    image: "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m4u3wt9y1ibnb9@resize_w450_nl.webp",
+    name: "Chân tripod mini 3 in 1 cho điện thoại"
   },
 
 
@@ -49,6 +49,7 @@ const products = [
 
 
 ];
+
 
 
 
